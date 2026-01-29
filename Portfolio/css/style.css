@@ -1,0 +1,202 @@
+/* =====================
+   VARIABLES & THEMES
+===================== */
+:root {
+  --primary: #2563eb;
+  --secondary: #0f172a;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --radius: 12px;
+  --shadow: 0 15px 30px rgba(0,0,0,.08);
+}
+
+body.dark {
+  --bg: #020617;
+  --surface: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+}
+
+/* =====================
+   BASE RESET
+===================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =====================
+   HEADER (GLOBAL)
+===================== */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--secondary);
+  z-index: 1000;
+  transition: box-shadow .3s;
+}
+
+header.scrolled {
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { color: #fff; font-weight: 700; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  padding: .4rem .8rem;
+  border-radius: var(--radius);
+}
+
+nav a:hover { background: var(--primary); }
+
+.menu-toggle {
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: none;
+}
+
+.theme-toggle {
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: inline;
+}
+
+@media (max-width:768px) {
+  nav { display: none; width: 100%; }
+  nav.show { display: block; }
+  nav ul { flex-direction: column; }
+  .menu-toggle, .theme-toggle { display: inline; }
+}
+
+/* =====================
+   MAIN & SECTIONS
+===================== */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  gap: 4rem;
+}
+
+section {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* =====================
+   GRID SYSTEM
+===================== */
+.grid-3 {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width:768px) {
+  .grid-3 { grid-template-columns: repeat(3,1fr); }
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .3s;
+}
+
+.card:hover { transform: translateY(-6px); }
+
+.card h3 { color: var(--primary); }
+
+/* =====================
+   SCROLLTRIGGER-STYLE
+===================== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all .8s ease-out;
+}
+
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   FORM
+===================== */
+form {
+  display: grid;
+  gap: 1rem;
+  width: 40%;
+}
+
+input, textarea {
+  padding: .8rem;
+  border-radius: var(--radius);
+  border: 1px solid #cbd5e1;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: .8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem;
+}
+
+.cta-button {
+  background-color: #007bff; /* Button background color */
+  color: white;             /* Text color */
+  padding: 15px 32px;       /* Spacing inside the button */
+  text-align: center;       /* Center the text */
+  text-decoration: none;    /* Remove the default link underline */
+  display: inline-block;    /* Allows padding and margin to be applied */
+  font-size: 16px;          /* Text size */
+  margin: 4px 2px;          /* Spacing around the button */
+  cursor: pointer;          /* Change cursor to a hand icon on hover */
+  border-radius: 8px;       /* Rounded corners */
+  transition-duration: 0.4s;/* Smooth transition for hover effects */
+}
+
+/* Optional: Add a hover effect */
+.cta-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
